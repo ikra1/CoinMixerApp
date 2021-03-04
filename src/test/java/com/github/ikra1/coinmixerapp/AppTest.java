@@ -132,6 +132,7 @@ public class AppTest {
 	    assertEquals(1,0);
 	} finally {
 	   //uninit if there is something
+	    cmUtil.clear();
 	}	
 
     }

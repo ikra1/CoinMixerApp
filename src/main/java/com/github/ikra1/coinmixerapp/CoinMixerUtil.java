@@ -26,7 +26,6 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 
 import org.apache.http.impl.client.HttpClients;
@@ -62,20 +61,23 @@ public class CoinMixerUtil {
      * 
      */
     public CoinMixerUtil()  {
-
-    }
-    {
+	
 	cm = new PoolingHttpClientConnectionManager(); //to close at the end
 	cm.setMaxTotal(20);
 	cm.setDefaultMaxPerRoute(6);
 	httpClient = HttpClients.custom().setConnectionManager(cm).build();
 	tm = new Timer();
 	setUsedAddrs=new HashSet<String>(); 
+
     }
-    
-    public void finalize() {
-	cm.close();
-	tm.cancel();
+ 
+    /**
+     * clears resources used
+     * 
+     */    
+    public void clear() {
+	if (cm!=null) cm.close();
+	if (tm!=null) tm.cancel();
     }
     /**
      * gets property value

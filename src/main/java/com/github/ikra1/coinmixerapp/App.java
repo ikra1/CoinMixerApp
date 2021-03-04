@@ -51,7 +51,6 @@ public final class App {
         CoinMixerUtil cmUtil = new CoinMixerUtil();
 
 	try {
-	    //cmUtil.initialize();
     	    System.out.println("<CoinMixer>\n");
     	    while (true) {
     		System.out.println("Please enter a comma-separated list of new, unused Jobcoin addresses where your mixed Jobcoins will be sent.");
@@ -89,8 +88,7 @@ public final class App {
 	} finally {
 	   //uninit 
 	   scan.close();
-	   cmUtil.finalize();
-	   System.exit(0);
+	   cmUtil.clear();
 	}	
     }
 }
