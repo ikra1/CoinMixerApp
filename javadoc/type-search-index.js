@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","u":"allclasses-index.html"},{"p":"com.github.ikra1.coinmixerapp","l":"CoinMixerUtil"}];updateSearchResults();
